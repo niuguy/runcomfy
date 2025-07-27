@@ -40,5 +40,5 @@ changelog:
 
 release:
   github:
-    owner: YOUR_GITHUB_USERNAME
+    owner: niuguy
     name: runcomfy
