@@ -1,0 +1,89 @@
+{
+  "version": "1.0",
+  "nodes": {
+    "1": {
+      "id": 1,
+      "type": "CheckpointLoaderSimple",
+      "pos": [100, 100],
+      "size": [200, 100],
+      "properties": {
+        "ckpt_name": "sd_xl_base_1.0.safetensors"
+      },
+      "widgets_values": ["sd_xl_base_1.0.safetensors"]
+    },
+    "2": {
+      "id": 2,
+      "type": "CLIPTextEncode",
+      "pos": [350, 50],
+      "size": [200, 150],
+      "properties": {},
+      "widgets_values": ["a beautiful landscape"]
+    },
+    "3": {
+      "id": 3,
+      "type": "CLIPTextEncode", 
+      "pos": [350, 250],
+      "size": [200, 150],
+      "properties": {},
+      "widgets_values": ["blurry, low quality"]
+    },
+    "4": {
+      "id": 4,
+      "type": "KSampler",
+      "pos": [600, 100],
+      "size": [250, 200],
+      "properties": {}
+    },
+    "5": {
+      "id": 5,
+      "type": "VAEDecode",
+      "pos": [900, 100],
+      "size": [200, 100],
+      "properties": {}
+    },
+    "6": {
+      "id": 6,
+      "type": "SaveImage",
+      "pos": [1150, 100],
+      "size": [200, 100],
+      "properties": {}
+    },
+    "7": {
+      "id": 7,
+      "type": "EmptyLatentImage",
+      "pos": [350, 450],
+      "size": [200, 100],
+      "properties": {},
+      "widgets_values": [1024, 1024, 1]
+    },
+    "8": {
+      "id": 8,
+      "type": "LoraLoader",
+      "pos": [100, 300],
+      "size": [200, 120],
+      "properties": {
+        "lora_name": "detail_tweaker_xl.safetensors"
+      },
+      "widgets_values": ["detail_tweaker_xl.safetensors", 1.0, 1.0]
+    },
+    "9": {
+      "id": 9,
+      "type": "SomeCustomNode",
+      "pos": [100, 500],
+      "size": [200, 100],
+      "properties": {}
+    }
+  },
+  "models": [
+    {
+      "name": "sd_xl_base_1.0.safetensors",
+      "url": "https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0",
+      "directory": "checkpoints"
+    },
+    {
+      "name": "detail_tweaker_xl.safetensors", 
+      "url": "https://civitai.com/models/detail-tweaker-xl",
+      "directory": "loras"
+    }
+  ]
+}
